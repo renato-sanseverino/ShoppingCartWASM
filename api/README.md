@@ -5,4 +5,4 @@
 This project demonstrates the following: 
 - How to create REST Endpoints in .NET6 using Minimal APIS. 
 - How to add documentation using Swagger
-// How to Secure Minimal APIs using JWT Authentication
+- How to Secure Minimal APIs using JWT Authentication
