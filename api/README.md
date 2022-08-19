@@ -1,4 +1,4 @@
-# Minimal APIs Demo using .NET6 , EFCore6 and MySQL
+# Minimal APIs using .NET6 , EFCore6 and MySQL
 
 ### DB Script: Create a new database and run the script located at /database/commercedb.sql
 
