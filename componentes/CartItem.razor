@@ -1,0 +1,41 @@
+﻿
+@inject InfoModal modalRef;
+
+<div class="cartItem">
+    <img class="itemImage" src="@produto.imagem" />
+    <fieldset class="vertical-container">
+        <span>@produto.descricao</span>
+        <span>Preço: R$ @produto.preco</span>
+        <button id="remover" @onclick="remover"><b>Remover</b></button>
+        <NumberSpinner currentCount=1 ></NumberSpinner>
+    </fieldset>
+</div>
+
+<InfoModal @ref="modalRef" modalContent=""></InfoModal>
+
+
+@code {
+    [Parameter]
+    public ShoppingCart? shoppingCart { get; set; }
+
+    [Parameter]
+    public Produto? produto { get; set; }
+
+    private void remover()
+    {
+        if (shoppingCart == null) return;
+
+        // Remove o produto do carrinho
+        List<Produto> carrinho = shoppingCart.produtosAdicionados;
+        if (carrinho.Contains(produto)) {
+            carrinho.Remove(produto);
+            modalRef.modalContent = "O produto [" + produto.nome + "] foi removido do carrinho.";
+            modalRef.Open();
+        }
+
+        // Faz o refresh do carrinho
+        if (carrinho.Count == 0) return;
+        // ...  not implemented yet ...
+    }
+
+}
